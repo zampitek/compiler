@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ricky/coding/c/language/compiler/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
