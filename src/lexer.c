@@ -11,16 +11,19 @@ Token handle_numbers(char **raw);
 Token handle_symbols(char **raw);
 Token handle_keywords(char **raw);
 
-char consume(char **pt);
-char peek(char *pt);
-void append(Token **last_element, Token token);
+void append(Token **list, int *count, int *capacity, Token token);
 
 TokenType identify_symbol(const char *buffer);
 TokenType identify_keyword(const char *buffer);
 
 Token *tokenize(char *raw) {
-    Token *token_list = (Token *)malloc(sizeof(Token) * length(raw) + 1);
-    Token *last_element = token_list;
+    int capacity = 16;
+    int count = 0;
+    Token *token_list = (Token *)malloc(sizeof(Token) * capacity);
+    if (token_list == NULL) {
+        perror("Memory allocation failed");
+        exit(-1);
+    }
 
     while (true) {
         char ch = *raw;
@@ -38,27 +41,48 @@ Token *tokenize(char *raw) {
             Token token = handle_numbers(&raw);
             if (token.type == TOKEN_ERROR || token.value == NULL) {
                 perror("Error parsing number");
+                for (int i = 0; i < count; i++) {
+                    free(token_list[i].value);
+                }
+                free(token_list);
                 exit(-1);
             }
-            append(&last_element, token);
+            append(&token_list, &count, &capacity, token);
         } else if (ispunct(ch)) {
             Token token = handle_symbols(&raw);
             if (token.type == TOKEN_ERROR || token.value == NULL) {
                 perror("Error parsing operator");
+                for (int i = 0; i < count; i++) {
+                    free(token_list[i].value);
+                }
+                free(token_list);
                 exit(-1);
             }
-            append(&last_element, token);
+            append(&token_list, &count, &capacity, token);
         } else if (isalpha(ch)) {
             Token token = handle_keywords(&raw);
             if (token.type == TOKEN_ERROR || token.value == NULL) {
                 perror("Error parsing operator");
+                for (int i = 0; i < count; i++) {
+                    free(token_list[i].value);
+                }
+                free(token_list);
                 exit(-1);
             }
-            append(&last_element, token);
+            append(&token_list, &count, &capacity, token);
         }
     }
 
-    append(&last_element, (Token){TOKEN_EOF, "\0"});
+    char *eof_value = (char *)malloc(1);
+    if (eof_value == NULL) {
+        for (int i = 0; i < count; i++) {
+            free(token_list[i].value);
+        }
+        free(token_list);
+        return NULL;
+    }
+    eof_value[0] = '\0';
+    append(&token_list, &count, &capacity, (Token){TOKEN_EOF, eof_value});
 
     return token_list;
 }
@@ -105,6 +129,7 @@ Token handle_symbols(char **raw) {
 
     TokenType type = identify_symbol(buffer);
     if (type == TOKEN_ERROR) {
+        free(buffer);
         return (Token){type, NULL};
     }
 
@@ -132,6 +157,7 @@ Token handle_keywords(char **raw) {
 
     TokenType type = identify_keyword(buffer);
     if (type == TOKEN_ERROR) {
+        free(buffer);
         return (Token){type, NULL};
     }
 
@@ -139,9 +165,20 @@ Token handle_keywords(char **raw) {
     return token;
 }
 
-void append(Token **last_element, Token token) {
-    *last_element[0] = token;
-    (*last_element)++;
+void append(Token **list, int *count, int *capacity, Token token) {
+    if (*count >= *capacity) {
+        *capacity *= 2;
+        Token *new_list = (Token *)realloc(*list, sizeof(Token) * (*capacity));
+        if (new_list == NULL) {
+            free(*list);
+            *list = NULL;
+            return;
+        }
+        *list = new_list;
+    }
+
+    (*list)[*count] = token;
+    (*count)++;
 }
 
 TokenType identify_symbol(const char *buffer) {
@@ -158,4 +195,20 @@ TokenType identify_keyword(const char *buffer) {
     } else  {
         return TOKEN_ERROR;
     }
+}
+
+void free_tokens(Token *tokens) {
+    if (tokens == NULL) return;
+
+    int i = 0;
+    while (tokens[i].type != TOKEN_EOF) {
+        if (tokens[i].value != NULL) {
+            free(tokens[i].value);
+        }
+        i++;
+    }
+    if (tokens[i].value != NULL) {
+        free(tokens[i].value);
+    }
+    free(tokens);
 }

@@ -4,7 +4,7 @@
 typedef enum {
     TOKEN_EOF = 0,
     TOKEN_NUMBER,
-    
+
     TOKEN_KEYWORD_RETURN,
 
     TOKEN_SEMICOLON,
@@ -14,7 +14,7 @@ typedef enum {
 
 typedef struct {
     TokenType type;
-    const char *value;
+    char *value;
 } Token;
 
 #endif

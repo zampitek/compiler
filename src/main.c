@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "../include/utils.h"
 #include "../include/tokens.h"
@@ -15,35 +16,40 @@ int main(int argc, char *argv[]) {
 
     int i = 0;
     Token token;
-    while ((token = tokens[i]).type != TOKEN_EOF) {
+    while (true) {
+        token = tokens[i];
+        if (token.type == TOKEN_EOF) {
+            break;
+        }
         printf("%s ", token_lookup(token));
         i++;
     }
     putchar('\n');
-    
+
+    free(tokens);
+    free(file_content);
+
     return 0;
 }
 
 char *token_lookup(Token token) {
-    char *token_s;
+    static char buffer[256];
 
     switch (token.type) {
     case TOKEN_KEYWORD_RETURN:
-        token_s = "TOKEN_KEYWORD_RETURN";
+        return "TOKEN_KEYWORD_RETURN";
         break;
     case TOKEN_NUMBER:
-        sprintf(token_s, "TOKEN_NUMBER:%s", token.value);
-        break;
+        snprintf(buffer, sizeof(buffer), "TOKEN_NUMBER:%s", token.value);
+        return buffer;
     case TOKEN_SEMICOLON:
-        token_s = "TOKEN_SEMICOLON";
+        return "TOKEN_SEMICOLON";
         break;
     case TOKEN_EOF:
-        token_s = "TOKEN_EOF";
+        return "TOKEN_EOF";
         break;
-    
+
     default:
         return NULL;
     }
-
-    return token_s;
 }
