@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/ricky/coding/c/language/compiler/build",
+  "command": "/usr/bin/gcc -I/home/ricky/coding/c/language/compiler/include -g -std=gnu11 -o CMakeFiles/my_program.dir/src/lexer.c.o -c /home/ricky/coding/c/language/compiler/src/lexer.c",
+  "file": "/home/ricky/coding/c/language/compiler/src/lexer.c",
+  "output": "/home/ricky/coding/c/language/compiler/build/CMakeFiles/my_program.dir/src/lexer.c.o"
+},
+{
+  "directory": "/home/ricky/coding/c/language/compiler/build",
+  "command": "/usr/bin/gcc -I/home/ricky/coding/c/language/compiler/include -g -std=gnu11 -o CMakeFiles/my_program.dir/src/main.c.o -c /home/ricky/coding/c/language/compiler/src/main.c",
+  "file": "/home/ricky/coding/c/language/compiler/src/main.c",
+  "output": "/home/ricky/coding/c/language/compiler/build/CMakeFiles/my_program.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ricky/coding/c/language/compiler/build",
+  "command": "/usr/bin/gcc -I/home/ricky/coding/c/language/compiler/include -g -std=gnu11 -o CMakeFiles/my_program.dir/src/utils.c.o -c /home/ricky/coding/c/language/compiler/src/utils.c",
+  "file": "/home/ricky/coding/c/language/compiler/src/utils.c",
+  "output": "/home/ricky/coding/c/language/compiler/build/CMakeFiles/my_program.dir/src/utils.c.o"
+}
+]

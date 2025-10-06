@@ -32,6 +32,7 @@ CMakeFiles/my_program.dir/src/main.c.o: \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
  /home/ricky/coding/c/language/compiler/src/../include/utils.h \
  /home/ricky/coding/c/language/compiler/src/../include/tokens.h \
  /home/ricky/coding/c/language/compiler/src/../include/lexer.h \
