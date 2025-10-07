@@ -4,7 +4,6 @@ CMakeFiles/my_program.dir/src/lexer.c.o: \
  /home/ricky/coding/c/language/compiler/src/../include/lexer.h \
  /home/ricky/coding/c/language/compiler/src/../include/tokens.h \
  /home/ricky/coding/c/language/compiler/src/../include/tokens.h \
- /home/ricky/coding/c/language/compiler/src/../include/utils.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \

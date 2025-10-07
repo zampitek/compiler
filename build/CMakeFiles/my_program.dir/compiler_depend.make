@@ -20,7 +20,6 @@
 CMakeFiles/my_program.dir/src/lexer.c.o: /home/ricky/coding/c/language/compiler/src/lexer.c \
   /home/ricky/coding/c/language/compiler/include/lexer.h \
   /home/ricky/coding/c/language/compiler/include/tokens.h \
-  /home/ricky/coding/c/language/compiler/include/utils.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
@@ -206,6 +205,8 @@ CMakeFiles/my_program.dir/src/utils.c.o: /home/ricky/coding/c/language/compiler/
 
 /home/ricky/coding/c/language/compiler/src/utils.c:
 
+/home/ricky/coding/c/language/compiler/include/utils.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h:
@@ -232,13 +233,15 @@ CMakeFiles/my_program.dir/src/utils.c.o: /home/ricky/coding/c/language/compiler/
 
 /usr/include/bits/wordsize.h:
 
-/usr/include/bits/waitflags.h:
-
 /usr/include/stdc-predef.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/bits/libc-header-start.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/lib/ld-linux-x86-64.so.2:
 
 /usr/include/bits/floatn.h:
 
@@ -246,11 +249,9 @@ CMakeFiles/my_program.dir/src/utils.c.o: /home/ricky/coding/c/language/compiler/
 
 /usr/include/bits/endianness.h:
 
-/home/ricky/coding/c/language/compiler/include/utils.h:
-
-CMakeFiles/my_program.dir/src/utils.c.o:
-
 /usr/include/bits/types/__sigset_t.h:
+
+/usr/include/bits/waitflags.h:
 
 /usr/include/alloca.h:
 
@@ -259,6 +260,8 @@ CMakeFiles/my_program.dir/src/utils.c.o:
 /usr/include/bits/long-double.h:
 
 /home/ricky/coding/c/language/compiler/src/lexer.c:
+
+CMakeFiles/my_program.dir/src/utils.c.o:
 
 CMakeFiles/my_program.dir/src/main.c.o:
 
@@ -299,10 +302,6 @@ CMakeFiles/my_program.dir/src/lexer.c.o:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
 
 /usr/lib/crtn.o:
-
-/usr/lib/ld-linux-x86-64.so.2:
-
-/usr/include/bits/pthreadtypes.h:
 
 /usr/lib/libc.so.6:
 

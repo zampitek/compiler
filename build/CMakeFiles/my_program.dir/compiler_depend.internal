@@ -22,7 +22,6 @@ CMakeFiles/my_program.dir/src/lexer.c.o
  /home/ricky/coding/c/language/compiler/src/lexer.c
  /home/ricky/coding/c/language/compiler/include/lexer.h
  /home/ricky/coding/c/language/compiler/include/tokens.h
- /home/ricky/coding/c/language/compiler/include/utils.h
  /usr/include/alloca.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
