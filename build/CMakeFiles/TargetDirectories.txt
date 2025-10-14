@@ -1,3 +1,0 @@
-/home/ricky/coding/c/language/compiler/build/CMakeFiles/my_program.dir
-/home/ricky/coding/c/language/compiler/build/CMakeFiles/edit_cache.dir
-/home/ricky/coding/c/language/compiler/build/CMakeFiles/rebuild_cache.dir
