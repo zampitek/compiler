@@ -1,0 +1,31 @@
+# Syntax Grammar for Token-Based Parser
+# Supports: return statement with integers and arithmetic expressions (+, -, *, /)
+
+# Program structure
+program ::= statement
+
+statement ::= return_statement
+
+return_statement ::= RETURN expression SEMICOLON
+
+# Expression grammar with proper precedence
+# Lower precedence (evaluated last): + -
+expression ::= term
+             | expression PLUS (term|expression)
+             | expression MINUS (term|expression)
+
+# Higher precedence (evaluated first): * /
+term ::= factor
+       | term MULTIPLY factor
+       | term DIVIDE factor
+
+factor ::= INTEGER
+
+# Token definitions (assumed to come from lexer/tokenizer)
+# RETURN      - 'return' keyword
+# INTEGER     - numeric literal (e.g., 42, 0, 123)
+# PLUS        - '+' operator
+# MINUS       - '-' operator
+# MULTIPLY    - '*' operator
+# DIVIDE      - '/' operator
+# SEMICOLON   - ';' statement terminator

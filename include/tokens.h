@@ -2,14 +2,25 @@
 #define TOKENS_H
 
 typedef enum {
-    TOKEN_EOF = 0,
-    TOKEN_NUMBER,
+    END_OF_FILE = 0,
 
-    TOKEN_KEYWORD_RETURN,
+    INTEGER,
 
-    TOKEN_SEMICOLON,
+    RETURN,
 
-    TOKEN_ERROR
+    SEMICOLON,
+    PLUS,
+    MINUS,
+    MULTIPLY,
+    DIVIDE,
+    GREATER,
+    GREATER_EQUAL,
+    LESS,
+    LESS_EQUAL,
+    EQUAL,
+    NOT_EQUAL,
+
+    ERROR
 } TokenType;
 
 typedef struct {

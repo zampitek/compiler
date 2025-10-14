@@ -1,20 +1,11 @@
 #include "../include/lexer.h"
 #include "../include/tokens.h"
-#include "../include/utils.h"
 
+#include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-Token handle_numbers(char **raw);
-Token handle_symbols(char **raw);
-Token handle_keywords(char **raw);
-
-void append(Token **list, int *count, int *capacity, Token token);
-
-TokenType identify_symbol(const char *buffer);
-TokenType identify_keyword(const char *buffer);
 
 Token *tokenize(char *raw) {
     int capacity = 16;
@@ -39,7 +30,7 @@ Token *tokenize(char *raw) {
 
         if (isdigit(ch)) {
             Token token = handle_numbers(&raw);
-            if (token.type == TOKEN_ERROR || token.value == NULL) {
+            if (token.type == ERROR || token.value == NULL) {
                 perror("Error parsing number");
                 for (int i = 0; i < count; i++) {
                     free(token_list[i].value);
@@ -50,7 +41,7 @@ Token *tokenize(char *raw) {
             append(&token_list, &count, &capacity, token);
         } else if (ispunct(ch)) {
             Token token = handle_symbols(&raw);
-            if (token.type == TOKEN_ERROR || token.value == NULL) {
+            if (token.type == ERROR || token.value == NULL) {
                 perror("Error parsing operator");
                 for (int i = 0; i < count; i++) {
                     free(token_list[i].value);
@@ -61,7 +52,7 @@ Token *tokenize(char *raw) {
             append(&token_list, &count, &capacity, token);
         } else if (isalpha(ch)) {
             Token token = handle_keywords(&raw);
-            if (token.type == TOKEN_ERROR || token.value == NULL) {
+            if (token.type == ERROR || token.value == NULL) {
                 perror("Error parsing operator");
                 for (int i = 0; i < count; i++) {
                     free(token_list[i].value);
@@ -79,10 +70,10 @@ Token *tokenize(char *raw) {
             free(token_list[i].value);
         }
         free(token_list);
-        return NULL;
+        exit(-1);
     }
     eof_value[0] = '\0';
-    append(&token_list, &count, &capacity, (Token){TOKEN_EOF, eof_value});
+    append(&token_list, &count, &capacity, (Token){END_OF_FILE, eof_value});
 
     return token_list;
 }
@@ -98,43 +89,50 @@ Token handle_numbers(char **raw) {
     size_t buffer_size = end - start;
     char *buffer = (char *)malloc(buffer_size + 1);
     if (buffer == NULL) {
-        return (Token){TOKEN_ERROR, NULL};
+        return (Token){ERROR, NULL};
     }
     memcpy(buffer, start, buffer_size);
 
     buffer[buffer_size] = '\0';
     *raw = (char *)end;
 
-    Token token = {TOKEN_NUMBER, buffer};
+    Token token = {INTEGER, buffer};
     return token;
 }
 
 Token handle_symbols(char **raw) {
-    const char *start = *raw;
-    const char *end = *raw;
+    char c = **raw;
+    char next = *(*raw + 1);
 
-    while (ispunct(*end)) {
-        end++;
+    if (c == '>' && next == '=') {
+        *raw += 2;
+        return (Token){GREATER_EQUAL, ">="};
+    }
+    if (c == '<' && next == '=') {
+        *raw += 2;
+        return (Token){LESS_EQUAL, "<="};
+    }
+    if (c == '=' && next == '=') {
+        *raw += 2;
+        return (Token){EQUAL, "=="};
+    }
+    if (c == '!' && next == '=') {
+        *raw += 2;
+        return (Token){NOT_EQUAL, "!="};
     }
 
-    size_t buffer_size = end - start;
-    char *buffer = (char *)malloc(buffer_size + 1);
-    if (buffer == NULL) {
-        return (Token){TOKEN_ERROR, NULL};
+    switch (c) {
+        case '+': (*raw)++; return (Token){PLUS, "+"};
+        case '-': (*raw)++; return (Token){MINUS, "-"};
+        case '*': (*raw)++; return (Token){MULTIPLY, "*"};
+        case '/': (*raw)++; return (Token){DIVIDE, "/"};
+        case '<': (*raw)++; return (Token){LESS, "<"};
+        case '>': (*raw)++; return (Token){GREATER, ">"};
+        case ';': (*raw)++; return (Token){SEMICOLON, ";"};
+
+        default:
+            return (Token){ERROR, NULL};
     }
-    memcpy(buffer, start, buffer_size);
-
-    buffer[buffer_size] = '\0';
-    *raw = (char *)end;
-
-    TokenType type = identify_symbol(buffer);
-    if (type == TOKEN_ERROR) {
-        free(buffer);
-        return (Token){type, NULL};
-    }
-
-    Token token = {type, buffer};
-    return token;
 }
 
 Token handle_keywords(char **raw) {
@@ -148,7 +146,7 @@ Token handle_keywords(char **raw) {
     size_t buffer_size = end - start;
     char *buffer = (char *)malloc(buffer_size + 1);
     if (buffer == NULL) {
-        return (Token){TOKEN_ERROR, NULL};
+        return (Token){ERROR, NULL};
     }
     memcpy(buffer, start, buffer_size);
 
@@ -156,7 +154,7 @@ Token handle_keywords(char **raw) {
     *raw = (char *)end;
 
     TokenType type = identify_keyword(buffer);
-    if (type == TOKEN_ERROR) {
+    if (type == ERROR) {
         free(buffer);
         return (Token){type, NULL};
     }
@@ -181,34 +179,10 @@ void append(Token **list, int *count, int *capacity, Token token) {
     (*count)++;
 }
 
-TokenType identify_symbol(const char *buffer) {
-    if (strcmp(buffer, ";") == 0) {
-        return TOKEN_SEMICOLON;
-    }  else {
-        return TOKEN_ERROR;
-    }
-}
-
 TokenType identify_keyword(const char *buffer) {
     if (strcmp(buffer, "return") == 0) {
-        return TOKEN_KEYWORD_RETURN;
+        return RETURN;
     } else  {
-        return TOKEN_ERROR;
+        return ERROR;
     }
-}
-
-void free_tokens(Token *tokens) {
-    if (tokens == NULL) return;
-
-    int i = 0;
-    while (tokens[i].type != TOKEN_EOF) {
-        if (tokens[i].value != NULL) {
-            free(tokens[i].value);
-        }
-        i++;
-    }
-    if (tokens[i].value != NULL) {
-        free(tokens[i].value);
-    }
-    free(tokens);
 }
