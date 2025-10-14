@@ -3,6 +3,11 @@ cmake_minimum_required(VERSION 3.10)
 # 1. Project Setup
 project(MyCProject C)
 
+# Add this near the top
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 # --- Define Directories ---
 # This variable stores the path to the project root (where this CMakeLists.txt is).
 set(PROJECT_ROOT_DIR ${CMAKE_SOURCE_DIR})

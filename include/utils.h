@@ -7,4 +7,4 @@ char *read_file(const char *filename);
 
 int length(const char *string);
 
-#endif // FILE_H
+#endif

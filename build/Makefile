@@ -129,6 +129,54 @@ my_program/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/build
 .PHONY : my_program/fast
 
+src/codegen.o: src/codegen.c.o
+.PHONY : src/codegen.o
+
+# target to build an object file
+src/codegen.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/codegen.c.o
+.PHONY : src/codegen.c.o
+
+src/codegen.i: src/codegen.c.i
+.PHONY : src/codegen.i
+
+# target to preprocess a source file
+src/codegen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/codegen.c.i
+.PHONY : src/codegen.c.i
+
+src/codegen.s: src/codegen.c.s
+.PHONY : src/codegen.s
+
+# target to generate assembly for a file
+src/codegen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/codegen.c.s
+.PHONY : src/codegen.c.s
+
+src/compiler.o: src/compiler.c.o
+.PHONY : src/compiler.o
+
+# target to build an object file
+src/compiler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/compiler.c.o
+.PHONY : src/compiler.c.o
+
+src/compiler.i: src/compiler.c.i
+.PHONY : src/compiler.i
+
+# target to preprocess a source file
+src/compiler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/compiler.c.i
+.PHONY : src/compiler.c.i
+
+src/compiler.s: src/compiler.c.s
+.PHONY : src/compiler.s
+
+# target to generate assembly for a file
+src/compiler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/compiler.c.s
+.PHONY : src/compiler.c.s
+
 src/lexer.o: src/lexer.c.o
 .PHONY : src/lexer.o
 
@@ -177,6 +225,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/parser.o: src/parser.c.o
+.PHONY : src/parser.o
+
+# target to build an object file
+src/parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/parser.c.o
+.PHONY : src/parser.c.o
+
+src/parser.i: src/parser.c.i
+.PHONY : src/parser.i
+
+# target to preprocess a source file
+src/parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/parser.c.i
+.PHONY : src/parser.c.i
+
+src/parser.s: src/parser.c.s
+.PHONY : src/parser.s
+
+# target to generate assembly for a file
+src/parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/parser.c.s
+.PHONY : src/parser.c.s
+
 src/utils.o: src/utils.c.o
 .PHONY : src/utils.o
 
@@ -210,12 +282,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_program"
+	@echo "... src/codegen.o"
+	@echo "... src/codegen.i"
+	@echo "... src/codegen.s"
+	@echo "... src/compiler.o"
+	@echo "... src/compiler.i"
+	@echo "... src/compiler.s"
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser.o"
+	@echo "... src/parser.i"
+	@echo "... src/parser.s"
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"

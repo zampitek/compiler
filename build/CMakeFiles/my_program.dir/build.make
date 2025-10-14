@@ -72,10 +72,38 @@ include CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/codegen:
 .PHONY : CMakeFiles/my_program.dir/codegen
 
+CMakeFiles/my_program.dir/src/codegen.c.o: CMakeFiles/my_program.dir/flags.make
+CMakeFiles/my_program.dir/src/codegen.c.o: /home/ricky/coding/c/language/compiler/src/codegen.c
+CMakeFiles/my_program.dir/src/codegen.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/my_program.dir/src/codegen.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/codegen.c.o -MF CMakeFiles/my_program.dir/src/codegen.c.o.d -o CMakeFiles/my_program.dir/src/codegen.c.o -c /home/ricky/coding/c/language/compiler/src/codegen.c
+
+CMakeFiles/my_program.dir/src/codegen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/my_program.dir/src/codegen.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ricky/coding/c/language/compiler/src/codegen.c > CMakeFiles/my_program.dir/src/codegen.c.i
+
+CMakeFiles/my_program.dir/src/codegen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/my_program.dir/src/codegen.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ricky/coding/c/language/compiler/src/codegen.c -o CMakeFiles/my_program.dir/src/codegen.c.s
+
+CMakeFiles/my_program.dir/src/compiler.c.o: CMakeFiles/my_program.dir/flags.make
+CMakeFiles/my_program.dir/src/compiler.c.o: /home/ricky/coding/c/language/compiler/src/compiler.c
+CMakeFiles/my_program.dir/src/compiler.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/my_program.dir/src/compiler.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/compiler.c.o -MF CMakeFiles/my_program.dir/src/compiler.c.o.d -o CMakeFiles/my_program.dir/src/compiler.c.o -c /home/ricky/coding/c/language/compiler/src/compiler.c
+
+CMakeFiles/my_program.dir/src/compiler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/my_program.dir/src/compiler.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ricky/coding/c/language/compiler/src/compiler.c > CMakeFiles/my_program.dir/src/compiler.c.i
+
+CMakeFiles/my_program.dir/src/compiler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/my_program.dir/src/compiler.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ricky/coding/c/language/compiler/src/compiler.c -o CMakeFiles/my_program.dir/src/compiler.c.s
+
 CMakeFiles/my_program.dir/src/lexer.c.o: CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/src/lexer.c.o: /home/ricky/coding/c/language/compiler/src/lexer.c
 CMakeFiles/my_program.dir/src/lexer.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/my_program.dir/src/lexer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/my_program.dir/src/lexer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/lexer.c.o -MF CMakeFiles/my_program.dir/src/lexer.c.o.d -o CMakeFiles/my_program.dir/src/lexer.c.o -c /home/ricky/coding/c/language/compiler/src/lexer.c
 
 CMakeFiles/my_program.dir/src/lexer.c.i: cmake_force
@@ -89,7 +117,7 @@ CMakeFiles/my_program.dir/src/lexer.c.s: cmake_force
 CMakeFiles/my_program.dir/src/main.c.o: CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/src/main.c.o: /home/ricky/coding/c/language/compiler/src/main.c
 CMakeFiles/my_program.dir/src/main.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/my_program.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/my_program.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/main.c.o -MF CMakeFiles/my_program.dir/src/main.c.o.d -o CMakeFiles/my_program.dir/src/main.c.o -c /home/ricky/coding/c/language/compiler/src/main.c
 
 CMakeFiles/my_program.dir/src/main.c.i: cmake_force
@@ -100,10 +128,24 @@ CMakeFiles/my_program.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/my_program.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ricky/coding/c/language/compiler/src/main.c -o CMakeFiles/my_program.dir/src/main.c.s
 
+CMakeFiles/my_program.dir/src/parser.c.o: CMakeFiles/my_program.dir/flags.make
+CMakeFiles/my_program.dir/src/parser.c.o: /home/ricky/coding/c/language/compiler/src/parser.c
+CMakeFiles/my_program.dir/src/parser.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/my_program.dir/src/parser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/parser.c.o -MF CMakeFiles/my_program.dir/src/parser.c.o.d -o CMakeFiles/my_program.dir/src/parser.c.o -c /home/ricky/coding/c/language/compiler/src/parser.c
+
+CMakeFiles/my_program.dir/src/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/my_program.dir/src/parser.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ricky/coding/c/language/compiler/src/parser.c > CMakeFiles/my_program.dir/src/parser.c.i
+
+CMakeFiles/my_program.dir/src/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/my_program.dir/src/parser.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ricky/coding/c/language/compiler/src/parser.c -o CMakeFiles/my_program.dir/src/parser.c.s
+
 CMakeFiles/my_program.dir/src/utils.c.o: CMakeFiles/my_program.dir/flags.make
 CMakeFiles/my_program.dir/src/utils.c.o: /home/ricky/coding/c/language/compiler/src/utils.c
 CMakeFiles/my_program.dir/src/utils.c.o: CMakeFiles/my_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/my_program.dir/src/utils.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/my_program.dir/src/utils.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_program.dir/src/utils.c.o -MF CMakeFiles/my_program.dir/src/utils.c.o.d -o CMakeFiles/my_program.dir/src/utils.c.o -c /home/ricky/coding/c/language/compiler/src/utils.c
 
 CMakeFiles/my_program.dir/src/utils.c.i: cmake_force
@@ -116,20 +158,26 @@ CMakeFiles/my_program.dir/src/utils.c.s: cmake_force
 
 # Object files for target my_program
 my_program_OBJECTS = \
+"CMakeFiles/my_program.dir/src/codegen.c.o" \
+"CMakeFiles/my_program.dir/src/compiler.c.o" \
 "CMakeFiles/my_program.dir/src/lexer.c.o" \
 "CMakeFiles/my_program.dir/src/main.c.o" \
+"CMakeFiles/my_program.dir/src/parser.c.o" \
 "CMakeFiles/my_program.dir/src/utils.c.o"
 
 # External object files for target my_program
 my_program_EXTERNAL_OBJECTS =
 
+/home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/codegen.c.o
+/home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/compiler.c.o
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/lexer.c.o
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/main.c.o
+/home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/parser.c.o
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/src/utils.c.o
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/build.make
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/compiler_depend.ts
 /home/ricky/coding/c/language/compiler/out/my_program: CMakeFiles/my_program.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable /home/ricky/coding/c/language/compiler/out/my_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ricky/coding/c/language/compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable /home/ricky/coding/c/language/compiler/out/my_program"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_program.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

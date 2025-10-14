@@ -3,6 +3,7 @@ CMakeFiles/my_program.dir/src/lexer.c.o: \
  /usr/include/stdc-predef.h \
  /home/ricky/coding/c/language/compiler/src/../include/lexer.h \
  /home/ricky/coding/c/language/compiler/src/../include/tokens.h \
+ /home/ricky/coding/c/language/compiler/src/../include/compiler.h \
  /home/ricky/coding/c/language/compiler/src/../include/tokens.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

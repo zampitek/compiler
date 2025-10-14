@@ -2,6 +2,7 @@
 #define LEXER_H
 
 #include "tokens.h"
+#include "compiler.h"
 
 Token *tokenize(char *raw);
 Token handle_numbers(char **raw);

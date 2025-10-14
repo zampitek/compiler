@@ -2,8 +2,11 @@
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
+  CMakeFiles/my_program.dir/src/codegen.c.o \
+  CMakeFiles/my_program.dir/src/compiler.c.o \
   CMakeFiles/my_program.dir/src/lexer.c.o \
   CMakeFiles/my_program.dir/src/main.c.o \
+  CMakeFiles/my_program.dir/src/parser.c.o \
   CMakeFiles/my_program.dir/src/utils.c.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
@@ -33,9 +36,15 @@
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
+CMakeFiles/my_program.dir/src/codegen.c.o:
+
+CMakeFiles/my_program.dir/src/compiler.c.o:
+
 CMakeFiles/my_program.dir/src/lexer.c.o:
 
 CMakeFiles/my_program.dir/src/main.c.o:
+
+CMakeFiles/my_program.dir/src/parser.c.o:
 
 CMakeFiles/my_program.dir/src/utils.c.o:
 
