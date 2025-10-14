@@ -13,10 +13,8 @@ void initCompiler(Compiler *c, Token *tokens) {
 }
 
 void freeCompiler(Compiler *c) {
-    void freeCompiler(Compiler *c) {
-        free(c->chunk.code);
-        c->chunk.code = NULL;
-        c->chunk.count = 0;
-        c->chunk.capacity = 0;
-    }
+    free(c->chunk.code);
+    c->chunk.code = NULL;
+    c->chunk.count = 0;
+    c->chunk.capacity = 0;
 }
