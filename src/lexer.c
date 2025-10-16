@@ -40,29 +40,29 @@ Token *tokenize(char *raw, Compiler *c) {
             continue;
         }
 
+        Token token;
         if (isdigit(ch)) {
-            Token token = handle_numbers(&raw, &line, &column);
+            token = handle_numbers(&raw, &line, &column);
 
             if (token.type == ERROR || token.value == NULL) {
                 addError(c->errors, ERR_COMPILER_ERROR, "Compiler error during allocation. Likely not your fault", token.line, token.column, token);
                 c->had_error = true;
             }
-            append(&token_list, &count, &capacity, token);
         } else if (ispunct(ch)) {
-            Token token = handle_symbols(&raw, &line, &column);
+            token = handle_symbols(&raw, &line, &column);
             if (token.type == ERROR || token.value == NULL) {
                 addError(c->errors, ERR_INVALID_TOKEN, "Invalid symbol(s) found", token.line, token.column, token);
                 c->had_error = true;
             }
-            append(&token_list, &count, &capacity, token);
         } else if (isalpha(ch)) {
-            Token token = handle_keywords(&raw, &line, &column);
+            token = handle_keywords(&raw, &line, &column);
             if (token.type == ERROR || token.value == NULL) {
                 addError(c->errors, ERR_INVALID_TOKEN, "Invalid keyword found", token.line, token.column, token);
                 c->had_error = true;
             }
-            append(&token_list, &count, &capacity, token);
         }
+
+        append(&token_list, &count, &capacity, token);
     }
 
     char *eof_value = (char *)malloc(1);
