@@ -2,6 +2,9 @@
 #define COMPILER_H
 
 #include "tokens.h"
+#include "errors.h"
+
+#include <stdbool.h>
 
 typedef struct {
     char *code;
@@ -14,9 +17,12 @@ typedef struct {
     ByteCodeChunk chunk;
     Token *tokens;
     int current;
+    ErrorList *errors;
+    bool had_error;
 } Compiler;
 
-void initCompiler(Compiler *c, Token *tokens);
+void initCompiler(Compiler *c, ErrorList *e);
+void addTokens(Compiler *c, Token *tokens);
 void freeCompiler(Compiler *c);
 
 #endif
