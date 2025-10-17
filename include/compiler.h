@@ -5,12 +5,12 @@
 #include "errors.h"
 
 #include <stdbool.h>
+#include <stdint.h>
 
 typedef struct {
-    char *code;
+    uint8_t *code;
     int capacity;
     int count;
-    char *end;
 } ByteCodeChunk;
 
 typedef struct {

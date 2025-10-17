@@ -4,11 +4,14 @@
 #include "../include/codegen.h"
 
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 void parseProgram(Compiler *c, Token **tokens) {
     while ((*tokens)->type != END_OF_FILE) {
         parseStatement(c, tokens);
     }
+    emitOpCode(c, HALT);
 }
 
 void parseStatement(Compiler *c, Token **tokens) {
@@ -23,8 +26,7 @@ void parseStatement(Compiler *c, Token **tokens) {
             c->had_error = true;
         }
 
-        emitInstruction(c, "RET");
-        emitNewLine(c);
+        emitOpCode(c, RET);
     } else {
         addError(c->errors, ERR_UNEXPECTED_TOKEN, "Unexpected token found. Expected: return", (*tokens)->line, (*tokens)->column, **tokens);
         c->had_error = true;
@@ -40,11 +42,9 @@ void parseExpression(Compiler *c, Token **tokens) {
         parseTerm(c, tokens);
 
         if (op == PLUS) {
-            emitInstruction(c, "ADD");
-            emitNewLine(c);
+            emitOpCode(c, ADD);
         } else {
-            emitInstruction(c, "SUB");
-            emitNewLine(c);
+            emitOpCode(c, SUB);
         }
     }
 }
@@ -59,11 +59,9 @@ void parseTerm(Compiler *c, Token **tokens) {
         parseFactor(c, tokens);
 
         if (op == MULTIPLY) {
-            emitInstruction(c, "MUL");
-            emitNewLine(c);
+            emitOpCode(c, MUL);
         } else {
-            emitInstruction(c, "DIV");
-            emitNewLine(c);
+            emitOpCode(c, DIV);
         }
     }
 }
@@ -74,9 +72,9 @@ void parseFactor(Compiler *c, Token **tokens) {
         c->had_error = true;
         return;
     }
+    uint32_t value = (uint32_t)strtoul((*tokens)->value, NULL, 10);
 
-    emitInstruction(c, "PUSH ");
-    emitInteger(c, (*tokens)->value);
-    emitNewLine(c);
+    emitOpCode(c, PUSH);
+    emitInteger(c, value);
     (*tokens)++;
 }
