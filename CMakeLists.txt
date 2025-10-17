@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.10)
 # 1. Project Setup
 project(MyCProject C)
 
-# Add this near the top
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()

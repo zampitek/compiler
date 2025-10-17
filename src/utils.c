@@ -32,7 +32,7 @@ char *read_file(const char *filename) {
         fclose(file);
         return NULL;
     }
-    
+
     result = fread(buffer, file_size, 1, file);
     if (result != 1) {
         perror("Error reading file content");
@@ -45,15 +45,4 @@ char *read_file(const char *filename) {
     fclose(file);
 
     return buffer;
-}
-
-int length(const char *string) {
-    int counter = 0;
-    char ch;
-
-    while ((ch = string[counter]) != '\0') {
-        counter++;
-    }
-
-    return counter;
 }
