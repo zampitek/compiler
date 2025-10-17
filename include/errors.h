@@ -8,6 +8,7 @@ typedef enum {
     ERR_EXPECTED_SEMICOLON,
     ERR_MALFORMED_EXPRESSION,
     ERR_NO_FILE,
+    ERR_FILE_ERROR,
     ERR_COMPILER_ERROR
 } ErrorType;
 

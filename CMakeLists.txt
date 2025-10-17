@@ -13,7 +13,7 @@ endif()
 set(PROJECT_ROOT_DIR ${CMAKE_SOURCE_DIR})
 set(SOURCE_DIR "src")
 set(INCLUDE_DIR "include")
-set(EXECUTABLE_NAME "my_program")
+set(EXECUTABLE_NAME "peacock")
 set(OUTPUT_DIR "out")
 
 # 2. Output Configuration
